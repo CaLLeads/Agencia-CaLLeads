@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>CaLLeads – Seu Sucesso é o Nosso Algoritmo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg-main: #050507;
+      --bg-alt: #0c0d10;
+      --bg-card: #111217;
+      --border-met: #2a2d33;
+      --text-main: #ffffff;
+      --text-soft: #c7c9d0;
+      --accent: #f4f4f5;
+      --accent-soft: #d4d4d8;
+      --accent-outline: #3f3f46;
+      --radius-lg: 16px;
+      --radius-xl: 22px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.6);
+      --gradient-btn: linear-gradient(135deg, #f4f4f5, #a1a1aa);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #11121a 0, #050507 45%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      color: var(--text-main);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HEADER */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 5, 7, 0.98),
+        rgba(5, 5, 7, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(63, 63, 70, 0.5);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #e5e7eb, #4b5563 55%, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+    }
+
+    .brand-logo img {
+      width: 120%;
+      height: 120%;
+      object-fit: contain;
+      transform: translateY(2px);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+
+    .nav {
+      display: none;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .nav a {
+      position: relative;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.3rem;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform 0.16s ease-out, box-shadow 0.16s ease-out,
+        border-color 0.16s ease-out, background 0.16s ease-out, color 0.16s ease-out;
+    }
+
+    .btn-primary {
+      background: var(--gradient-btn);
+      color: #020617;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-soft);
+      border-color: var(--accent-outline);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-soft);
+      color: var(--accent-soft);
+    }
+
+    /* SECTION BASE */
+
+    .section {
+      padding: 3.5rem 0;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding-top: 2.5rem;
+      padding-bottom: 3.5rem;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .hero-left {
+      max-width: 640px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(63, 63, 70, 0.8);
+      background: rgba(9, 9, 11, 0.9);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: 2.1rem;
+      line-height: 1.1;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #f4f4f5, #d4d4d8);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--text-soft);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-text {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-bullets {
+      display: grid;
+      gap: 0.6rem;
+      margin-bottom: 1.8rem;
+      font-size: 0.9rem;
+    }
+
+    .hero-bullet {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .hero-bullet-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(248, 250, 252, 0.45);
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-footnote {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .hero-right {
+      flex: 1;
+    }
+
+    .hero-panel {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 0 0, #1f2933, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1.4rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      font-size: 0.8rem;
+      color: var(--accent-soft);
+    }
+
+    .hero-panel-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .metric-card {
+      border-radius: 0.9rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(75, 85, 99, 0.7);
+      padding: 0.7rem;
+      font-size: 0.75rem;
+    }
+
+    .metric-label {
+      color: var(--text-soft);
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .metric-tag {
+      font-size: 0.65rem;
+      color: var(--accent-soft);
+      opacity: 0.8;
+    }
+
+    .hero-panel-footer {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      opacity: 0.85;
+    }
+
+    .section-title-wrap {
+      margin-bottom: 1.8rem;
+      max-width: 640px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    /* WHY SECTION */
+
+    .why-section {
+      background: radial-gradient(circle at top, #0b0c12, #020308);
+      border-top: 1px solid rgba(39, 39, 42, 0.9);
+      border-bottom: 1px solid rgba(39, 39, 42, 0.9);
+    }
+
+    .why-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .why-card {
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-met);
+      padding: 1rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+    }
+
+    .why-card-title {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .why-card-text {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    /* PLANS */
+
+    .plans-section {
+      border-bottom: 1px solid rgba(39, 39, 42, 0.9);
+    }
+
+    .plans-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .plan-card {
+      border-radius: var(--radius-xl);
+      background: var(--bg-card);
+      border: 1px solid var(--border-met);
+      padding: 1.35rem 1.25rem;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.65);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(250, 250, 250, 0.06);
+      border: 1px solid rgba(161, 161, 170, 0.7);
+      color: var(--accent-soft);
+    }
+
+    .plan-name {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 0.2rem;
+    }
+
+    .plan-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .plan-sub {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      margin-bottom: 0.9rem;
+    }
+
+    .plan-list {
+      list-style: none;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .plan-list li::before {
+      content: "•";
+      margin-right: 0.4rem;
+      color: var(--accent-soft);
+    }
+
+    .plan-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .plans-bottom-cta {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--accent-soft);
+      text-align: center;
+    }
+
+    .plans-bottom-cta a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+
+    /* TEST 15 DAYS */
+
+    .test-section {
+      background: radial-gradient(circle at top, #0b0c12, #020308);
+      border-top: 1px solid rgba(39, 39, 42, 0.9);
+      border-bottom: 1px solid rgba(39, 39, 42, 0.9);
+    }
+
+    .test-grid {
+      display: grid;
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    .test-quote {
+      border-left: 2px solid var(--accent-soft);
+      padding-left: 0.9rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .test-highlight {
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .form-card {
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-met);
+      padding: 1.1rem 1rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+    }
+
+    .form-title {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-sub {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 0.7rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      font-size: 0.78rem;
+    }
+
+    .field label {
+      color: var(--text-soft);
+    }
+
+    .field input {
+      border-radius: 999px;
+      border: 1px solid var(--accent-outline);
+      padding: 0.55rem 0.8rem;
+      background: #020617;
+      color: var(--text-main);
+      font-size: 0.8rem;
+      outline: none;
+    }
+
+    .field input:focus {
+      border-color: var(--accent-soft);
+    }
+
+    .form-footnote {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-top: 0.5rem;
+    }
+
+    /* BLACK 12.12 */
+
+    .black-section {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .black-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 0 0, #1e293b, #020617 65%);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1.5rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .black-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .black-sub {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      margin-bottom: 1.1rem;
+    }
+
+    .black-grid {
+      display: grid;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      color: var(--accent-soft);
+      margin-bottom: 1.2rem;
+    }
+
+    .black-grid span::before {
+      content: "▹";
+      margin-right: 0.45rem;
+      color: var(--accent-soft);
+    }
+
+    /* FINAL CTA */
+
+    .final-section {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-top: 1px solid rgba(39, 39, 42, 0.9);
+    }
+
+    .final-inner {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .final-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .final-text {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 1.5rem;
+    }
+
+    .final-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      border-top: 1px solid rgba(39, 39, 42, 0.9);
+      padding: 1rem 0 1.6rem;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: var(--text-soft);
+    }
+
+    /* RESPONSIVE */
+
+    @media (min-width: 720px) {
+      .nav {
+        display: flex;
+      }
+
+      .hero {
+        padding-top: 3.2rem;
+      }
+
+      .hero-grid {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .hero-title {
+        font-size: 2.3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.05rem;
+      }
+
+      .hero-bullets {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .plans-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .test-grid {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      }
+
+      .footer-inner {
+        flex-direction: row;
+      }
+
+      .final-ctas {
+        flex-direction: row;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: 2.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="brand-logo">
+            <!-- Troque o src pela sua logo real -->
+            <img src="/mnt/data/5887e70e-e719-4535-8423-5d179a97bfd0.png" alt="Logo CaLLeads" />
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">CaLLeads</span>
+            <span class="brand-subtitle">Seu Sucesso é o Nosso Algoritmo.</span>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="#why">Sobre</a>
+          <a href="#plans">Planos</a>
+          <a href="#test">15 dias de teste</a>
+          <a href="#black">Black 12.12</a>
+          <a
+            class="btn btn-secondary"
+            href="https://wa.me/5511999376051"
+            target="_blank"
+            rel="noopener"
+          >
+            Falar com um estrategista
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero section" id="hero">
+        <div class="container hero-grid">
+          <div class="hero-left">
+            <div class="hero-kicker">
+              <span>Tráfego pago</span>
+              <span>•</span>
+              <span>Performance real</span>
+            </div>
+            <h1 class="hero-title">
+              <span>Seu Sucesso</span> é o Nosso Algoritmo.
+            </h1>
+            <p class="hero-subtitle">
+              Se o seu tráfego não está colocando dinheiro de volta no caixa, tem algo
+              errado na operação — não no algoritmo.
+            </p>
+            <p class="hero-text">
+              Nós entramos, ajustamos e fazemos suas campanhas performarem de verdade.
+              Sem achismo, sem firula, só resultado.
+            </p>
+            <div class="hero-bullets">
+              <div class="hero-bullet">
+                <span class="hero-bullet-dot"></span>
+                <span>Foco total em CPL, CPA, ROAS e LTV</span>
+              </div>
+              <div class="hero-bullet">
+                <span class="hero-bullet-dot"></span>
+                <span>Otimização diária, não campanha largada</span>
+              </div>
+              <div class="hero-bullet">
+                <span class="hero-bullet-dot"></span>
+                <span>Relatórios claros, sem fantasia</span>
+              </div>
+            </div>
+            <div class="hero-ctas">
+              <a
+                class="btn btn-primary"
+                href="https://wa.me/5511999376051"
+                target="_blank"
+                rel="noopener"
+              >
+                Quero testar a CaLLeads por 15 dias
+              </a>
+              <a
+                class="btn btn-secondary"
+                href="https://wa.me/5511999376051"
+                target="_blank"
+                rel="noopener"
+              >
+                Falar agora com um estrategista
+              </a>
+            </div>
+            <p class="hero-footnote">
+              Tráfego sem resultado não é tráfego. É desperdício. A CaLLeads existe pra
+              consertar isso.
+            </p>
+          </div>
+          <div class="hero-right">
+            <div class="hero-panel">
+              <div class="hero-panel-header">
+                <span>Painel de Performance CaLLeads</span>
+                <span>Tempo real • Multi-canal</span>
+              </div>
+              <div class="hero-panel-metrics">
+                <div class="metric-card">
+                  <div class="metric-label">ROAS</div>
+                  <div class="metric-value">5,3x</div>
+                  <div class="metric-tag">Campanha consolidada</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">CPL</div>
+                  <div class="metric-value">R$ 7,41</div>
+                  <div class="metric-tag">Leads qualificados</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">CPA</div>
+                  <div class="metric-value">R$ 32,18</div>
+                  <div class="metric-tag">Conversão em escala</div>
+                </div>
+              </div>
+              <div class="hero-panel-footer">
+                Você não recebe “print bonitinho”. Você enxerga a operação como ela é:
+                crua, mensurável e escalável.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY -->
+      <section class="section why-section" id="why">
+        <div class="container">
+          <div class="section-title-wrap">
+            <h2 class="section-title">Por que a CaLLeads muda o jogo?</h2>
+            <p class="section-subtitle">
+              Você não precisa de mais um gestor mexendo em botão. Precisa de uma
+              operação séria, agressiva e obcecada pelos seus números.
+            </p>
+          </div>
+          <div class="why-grid">
+            <div class="why-card">
+              <h3 class="why-card-title">Estratégia guiada por dados</h3>
+              <p class="why-card-text">
+                Nada de feeling. Cada decisão nasce de métricas: CPL, CPA, ROAS, LTV,
+                taxa de conversão e funil.
+              </p>
+            </div>
+            <div class="why-card">
+              <h3 class="why-card-title">Operação agressiva</h3>
+              <p class="why-card-text">
+                Testes constantes, ajustes rápidos e foco total em baixar custo mantendo
+                volume. Tráfego é guerra, não decoração.
+              </p>
+            </div>
+            <div class="why-card">
+              <h3 class="why-card-title">Transparência total</h3>
+              <p class="why-card-text">
+                Nada de slide colorido pra te distrair. Você vê os números crus, sabe o
+                que funciona e o que sai do ar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLANS -->
+      <section class="section plans-section" id="plans">
+        <div class="container">
+          <div class="section-title-wrap">
+            <h2 class="section-title">Escolha o nível do seu foguete</h2>
+            <p class="section-subtitle">
+              Três planos. Um objetivo: transformar tráfego em resultado previsível.
+            </p>
+          </div>
+          <div class="plans-grid">
+            <!-- PÉ DIREITO -->
+            <article class="plan-card">
+              <p class="plan-name">Plano 1</p>
+              <h3 class="plan-title">PÉ DIREITO</h3>
+              <p class="plan-sub">
+                Pra sair do amadorismo com estrutura e parar de “impulsionar post” no
+                chute.
+              </p>
+              <ul class="plan-list">
+                <li>Hooks e CTAs otimizados para o seu público</li>
+                <li>Relatórios semanais simplificados</li>
+                <li>Reuniões rápidas de 30 minutos</li>
+                <li>Alcance em Instagram + 1 canal adicional</li>
+                <li>2 testes A/B de criativos e copys por semana</li>
+              </ul>
+              <div class="plan-footer">
+                <span>Primeiro passo com o pé direito no tráfego.</span>
+                <a
+                  class="btn btn-secondary"
+                  href="https://wa.me/5511999376051"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Quero esse plano
+                </a>
+              </div>
+            </article>
+
+            <!-- FARMANDO AURA -->
+            <article class="plan-card">
+              <div class="plan-badge">Recomendado</div>
+              <p class="plan-name">Plano 2</p>
+              <h3 class="plan-title">FARMANDO AURA</h3>
+              <p class="plan-sub">
+                Pra quem já vende e quer funil, previsibilidade e campanha que dá
+                orgulho de abrir o relatório.
+              </p>
+              <ul class="plan-list">
+                <li>Funil completo: topo, meio e fundo</li>
+                <li>Otimização diária de CPL, CPA e conversão</li>
+                <li>Reunião estratégica quinzenal</li>
+                <li>Gestão em Meta Ads + Google Ads</li>
+                <li>Copy persuasiva + sugestão de Landing Pages</li>
+                <li>Tracking avançado com Pixel/API</li>
+              </ul>
+              <div class="plan-footer">
+                <span>Pra farmar autoridade, lead qualificado e venda todo dia.</span>
+                <a
+                  class="btn btn-secondary"
+                  href="https://wa.me/5511999376051"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Quero esse plano
+                </a>
+              </div>
+            </article>
+
+            <!-- THIS IS GOD? -->
+            <article class="plan-card">
+              <p class="plan-name">Plano 3</p>
+              <h3 class="plan-title">THIS IS GOD?</h3>
+              <p class="plan-sub">
+                O modo divindade do tráfego: visão total, múltiplas plataformas e
+                dashboard em tempo real.
+              </p>
+              <ul class="plan-list">
+                <li>Funil unificado em múltiplas plataformas</li>
+                <li>Dashboard em tempo real: LTV, ROAS, CPL, CPA</li>
+                <li>Reuniões semanais de 60 minutos</li>
+                <li>Suporte com SLA</li>
+                <li>
+                  Meta Ads + Google Ads + 1 extra (TikTok, Pinterest ou LinkedIn)
+                </li>
+                <li>Públicos avançados e públicos semente</li>
+                <li>Laboratório de criativos – 4 testes por semana</li>
+                <li>Auditoria de tracking e integração com CRM</li>
+              </ul>
+              <div class="plan-footer">
+                <span>Pra olhar o resultado e pensar: “This is God?”</span>
+                <a
+                  class="btn btn-secondary"
+                  href="https://wa.me/5511999376051"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Quero esse plano
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="plans-bottom-cta">
+            Não sabe qual faz mais sentido? <a href="#test">Clique aqui</a> e
+            conversamos antes de ligar a máquina.
+          </div>
+        </div>
+      </section>
+
+      <!-- 15 DAYS TEST -->
+      <section class="section test-section" id="test">
+        <div class="container test-grid">
+          <div>
+            <div class="section-title-wrap">
+              <h2 class="section-title">15 dias de operação CaLLeads. De graça.</h2>
+              <p class="section-subtitle">
+                Sem contrato, sem pegadinha, sem risco. Só tráfego rodando e número na
+                tela.
+              </p>
+            </div>
+            <div class="test-quote">
+              Se você não está performando no tráfego, é porque está tentando fazer
+              tudo sozinho ou está sendo mal assessorado.
+              <br /><br />
+              A CaLLeads te dá 15 dias de teste REAL da nossa operação. Você vê o
+              impacto — e só depois decide se continua.
+            </div>
+            <p class="test-highlight">Quem pensa demais fica pra trás.</p>
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/5511999376051"
+              target="_blank"
+              rel="noopener"
+            >
+              Ativar meus 15 dias de teste agora
+            </a>
+          </div>
+
+          <div>
+            <div class="form-card">
+              <h3 class="form-title">Ative seus 15 dias agora</h3>
+              <p class="form-sub">
+                Preencha rápido. O resto a operação cuida.
+              </p>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="nome">Nome</label>
+                  <input id="nome" type="text" placeholder="Seu nome completo" />
+                </div>
+                <div class="field">
+                  <label for="negocio">Negócio / Nicho</label>
+                  <input
+                    id="negocio"
+                    type="text"
+                    placeholder="Ex: infoproduto, e-commerce, clínica..."
+                  />
+                </div>
+                <div class="field">
+                  <label for="whats">WhatsApp</label>
+                  <input
+                    id="whats"
+                    type="tel"
+                    placeholder="(00) 00000-0000"
+                  />
+                </div>
+                <div class="field">
+                  <label for="email">E-mail</label>
+                  <input id="email" type="email" placeholder="voce@exemplo.com" />
+                </div>
+              </div>
+              <a
+                class="btn btn-primary"
+                style="width: 100%;"
+                href="https://wa.me/5511999376051"
+                target="_blank"
+                rel="noopener"
+              >
+                Quero meus 15 dias de teste
+              </a>
+              <p class="form-footnote">
+                Nada de fidelidade forçada. Se não fizer sentido pra você, a operação
+                desliga e pronto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLACK 12.12 -->
+      <section class="black-section" id="black">
+        <div class="container">
+          <div class="black-card">
+            <h2 class="black-title">
+              Black 12.12 CaLLeads – o maior acontecimento do ano.
+            </h2>
+            <p class="black-sub">
+              Um dia inteiro dedicado a empurrar a performance dos clientes CaLLeads
+              pro próximo nível.
+            </p>
+            <div class="black-grid">
+              <span>Ferramentas novas liberadas primeiro pros clientes.</span>
+              <span>Serviços novos e upgrades exclusivos.</span>
+              <span>Bônus e premiações pra quem performa.</span>
+              <span>Testes de performance dedicados às contas ativas.</span>
+              <span>Call ao vivo com todos os clientes CaLLeads.</span>
+            </div>
+            <a
+              class="btn btn-secondary"
+              href="https://wa.me/5511999376051"
+              target="_blank"
+              rel="noopener"
+            >
+              Quero entrar antes da Black 12.12
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="final-section">
+        <div class="container final-inner">
+          <h2 class="final-title">
+            A próxima campanha pode ser só mais um teste. Ou o início da virada.
+          </h2>
+          <p class="final-text">
+            Na CaLLeads, a gente não vende esperança. A gente vende estratégia,
+            execução e resultado mensurável. Se o seu tráfego não está no nível que
+            você sabe que poderia estar, o problema não é o mercado. É a operação.
+          </p>
+          <div class="final-ctas">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/5511999376051"
+              target="_blank"
+              rel="noopener"
+            >
+              Quero testar a CaLLeads por 15 dias
+            </a>
+            <a
+              class="btn btn-secondary"
+              href="https://wa.me/5511999376051"
+              target="_blank"
+              rel="noopener"
+            >
+              Falar com um estrategista agora
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span>© CaLLeads. Seu Sucesso é o Nosso Algoritmo.</span>
+        <div class="footer-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#hero">Voltar ao topo</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
